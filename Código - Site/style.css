@@ -1,0 +1,48 @@
+body {
+    background-color: #727374;
+    font-family: 'Texturina', serif;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Necessário para o posicionamento absoluto da logo */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    margin: 20px;
+    overflow: hidden;
+    position: relative; 
+    height: 540px;
+    width: 589px;
+}
+
+.border-side {
+    border-right: 2px solid black;
+    width: 10px; /* Ajuste a largura do border conforme necessário */
+}
+
+.content {
+    padding: 20px;
+    flex: 1;
+}
+
+/* Descomente e ajuste as propriedades para posicionar a logo fora do contêiner */
+.logo {
+    position: absolute; /* Posiciona a logo fora do fluxo normal */
+    top: 20px; /* Ajuste conforme necessário */
+    right: -50px; /* Ajuste para ficar fora da borda do container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    max-width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+}
+
+.title {
+    font-size: 20px;
+}
