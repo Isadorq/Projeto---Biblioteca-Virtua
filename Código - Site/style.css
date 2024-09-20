@@ -32,7 +32,7 @@ body {
 .logo {
     position: absolute; /* Posiciona a logo fora do fluxo normal */
     top: 20px; /* Ajuste conforme necessário */
-    right: -50px; /* Ajuste para ficar fora da borda do container */
+    right: -50px; 
     display: flex;
     align-items: center;
     justify-content: center;
