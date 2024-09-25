@@ -3,7 +3,7 @@ body {
     font-family: 'Texturina', serif;
     margin: 0;
     padding: 0;
-    position: relative; /* Necessário para o posicionamento absoluto da logo */
+    position: relative;
 }
 
 .container {
@@ -14,8 +14,8 @@ body {
     margin: 20px;
     overflow: hidden;
     position: relative; 
-    height: 540px;
-    width: 589px;
+    height: 500px;
+    width: 500px;
 }
 
 .border-side {
@@ -30,8 +30,8 @@ body {
 
 /* Descomente e ajuste as propriedades para posicionar a logo fora do contêiner */
 .logo {
-    position: absolute; /* Posiciona a logo fora do fluxo normal */
-    top: 20px; /* Ajuste conforme necessário */
+    position: absolute;
+    top: 20px;
     right: -50px; 
     display: flex;
     align-items: center;
@@ -39,10 +39,16 @@ body {
 }
 
 .logo img {
-    max-width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
-    height: auto;
+    max-width: 550px; 
+    height: 550px;
+    width: 550px;
 }
 
 .title {
-    font-size: 20px;
+    font-size: 40px;
 }
+
+input {
+    width: 100px;
+    display: flex;
+} 
