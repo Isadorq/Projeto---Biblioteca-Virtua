@@ -16,7 +16,7 @@ export default {
     addBook(book) {
         return apiClient.post('/', book);   // POST para adicionar um livro
     },
-    updateBook(book) {
+    updateBook(id,book) {
         return apiClient.put(`/${id}`, book);   // PUT para atualizar livro pelo ID
     },
     deleteBook(id) {
