@@ -1,53 +1,54 @@
-const express = require('express')  // Importamos o Express 
-const Book = require('../library-backend/models/Book')  // Importamos o modelo Book 
-const router = express.Router() // Criamos o roteador  
+const express = require('express');
+const Book = require('../models/Books');
+const router = express.Router();
 
 // ** CRIAÇÃO (POST) ** 
-
 router.post('/', async (req, res) => { 
-    const { title, author, year } = req.body;   // Extraímos os dados da requisição 
+    const { title, author, year } = req.body; 
     try { 
-        const newBook = ({ title, author, year })  // Criamos e salvamos o livro 
+        const newBook = new Book({ title, author, year }); // Criando uma nova instância do modelo 
         await newBook.save(); 
-        res.status(201).json(newBook);  // Retornamos o livro criado 
+        res.status(201).json(newBook); 
     } catch (error) { 
-        res.status(500).json({ message: 'Erro ao criar livro'}) 
-    } 
-}) 
-
-// ** LEITURA (PUT) ** 
-
-router.get('/', async (req, res) => { 
-    try{ 
-        const books = await Book.find() // Buscamos todos os livros 
-        res.status(200).json(books) 
-    } catch (error) { 
-        res.status(500).json({ message: 'Erro ao buscar livros', error })   // Retornamos erro, se houver 
-    } 
-}) 
-
-// *** ATUALIZAÇÃO (PUT) *** 
-
-router.put('/:id', async (req, res) => { 
-    const { title, author, year} = req.body // Extraímos os novos dados 
-    try { 
-        const updatedBook = await Book.findByIdAndUpdate(req.parans.id, { title, author, year}, (new true))    // Atualizamos o livro pelo ID 
-        res.status(500).json(updatedBook)   // Retornamos o livro atualizado 
-    } catch (error) { 
-        res.status(500).json({ message: 'Erro ao atualizar livro'}) 
-    } 
-}) 
-
-// *** EXLUSÃO (DELETE) ***  
-
-router.delete('/:id', async (req, res) => { 
-    try { 
-        await Book.findByIdAndUpdate 
-        res.status(200).json({ message: 'Livro deletado com sucesso' });    // Retornamosmensagem de sucesso 
-    } catch (error) { 
-        res.status(500).json({ message: 'Erro ao deletar livro', error });  // Retornamos erro, se houver 
+        res.status(500).json({ message: 'Erro ao criar livro', error }); 
     } 
 }); 
- 
-// Exportamos o roteador para ser usado no server.js 
-module.exports = router; 
+
+// ** LEITURA (GET) ** 
+router.get('/', async (req, res) => { 
+    try { 
+        const books = await Book.find(); 
+        res.status(200).json(books); 
+    } catch (error) { 
+        res.status(500).json({ message: 'Erro ao buscar livros', error }); 
+    } 
+}); 
+
+// ** ATUALIZAÇÃO (PUT) ** 
+router.put('/:id', async (req, res) => { 
+    const { title, author, year } = req.body; 
+    try { 
+        const updatedBook = await Book.findByIdAndUpdate(req.params.id, { title, author, year }, { new: true }); 
+        if (!updatedBook) {
+            return res.status(404).json({ message: 'Livro não encontrado' });
+        }
+        res.status(200).json(updatedBook); 
+    } catch (error) { 
+        res.status(500).json({ message: 'Erro ao atualizar livro', error }); 
+    } 
+}); 
+
+// ** EXCLUSÃO (DELETE) **  
+router.delete('/:id', async (req, res) => { 
+    try { 
+        const deletedBook = await Book.findByIdAndDelete(req.params.id);
+        if (!deletedBook) {
+            return res.status(404).json({ message: 'Livro não encontrado' });
+        }
+        res.status(200).json({ message: 'Livro deletado com sucesso' }); 
+    } catch (error) { 
+        res.status(500).json({ message: 'Erro ao deletar livro', error }); 
+    } 
+}); 
+
+module.exports = router;

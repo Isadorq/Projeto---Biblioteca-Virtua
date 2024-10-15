@@ -4,7 +4,7 @@ import axios from 'axios';  // Importa Axios para requisições HTTP
 const apiClient = axios.create({
     baseURL: 'http.//localhost:3000/api/books',  // URL da API
     headers: {
-        'Content-Type': 'appçication/json', // Define JSON como tipo de conteúdo
+        'Content-Type': 'application/json', // Define JSON como tipo de conteúdo
     },
 });
 
