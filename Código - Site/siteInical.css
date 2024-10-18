@@ -10,42 +10,36 @@ body {
     /* height: 150px; */
 /* } */
 
-.navbar {
-    list-style-type: none;
+.navbar{
     padding: 10px;
-    margin: -8px;
+    margin: -84px;
     display: flex;
     justify-content: flex-end;
+    background-color: #575a5e;
+
 }
 
 .icon {
     list-style-type: none;
-    /* padding: 50px; */
-    display: flex;
-    width: 50px;
+    padding: 50px;
+    display: flex; 
+    width: 120px;
+    justify-content: space-evenly;
 }
 
 .icon :hover {  
     cursor: pointer;
 }
 
-.navbar {
-    background-color: #575a5e;
-}
-
 .logo {
-    width: 95px;
-    height: 95px;
-    padding: -30px;
-    margin: -88px;
+    width: 100px;
+    height: 100px;
     display: flex;
-    justify-content: flex-end;   
-    margin-right: 20px;
-    margin-left: 100px;
+    justify-content: ;
 }
 
-.search {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}    
+/* .search { */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* margin-top: 30px; */ 
+/*}

@@ -1,9 +1,6 @@
 body {
     background-color: #727374;
     font-family: 'Texturina', serif;
-    margin: 0;
-    padding: 0;
-    position: relative;
 }
 
 .container {
@@ -16,6 +13,8 @@ body {
     position: relative; 
     height: 500px;
     width: 500px;
+    margin-top: 100px;
+    margin-left: 180px;
 }
 
 .border-side {
@@ -30,11 +29,14 @@ body {
 
 .logo {
     position: absolute;
-    top: 20px;
+    top: -58px;
     right: -50px; 
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 170px;
+    margin-right: 150px;
+    margin-left: 180px;
 }
 
 .logo img {
@@ -61,4 +63,14 @@ input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Texturina', serif;
+}
+
+.banner {
+    display: flex;
+    
+}
+
+.lupa {
+    width: 100px;
+    height: 1000px;
 }
